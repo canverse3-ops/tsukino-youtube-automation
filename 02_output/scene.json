@@ -1,0 +1,158 @@
+[
+  {
+    "scene_number": 1,
+    "title": "Scene 1",
+    "narration": "本当は\n\n家で休みたかった",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 2,
+    "title": "Scene 2",
+    "narration": "でも\n\n気づけば\n\n「いいよ」\n\nと返していた",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: でも 気づけば 「いいよ」 と返していた",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 3,
+    "title": "Scene 3",
+    "narration": "行きたいからじゃない",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 行きたいからじゃない",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 4,
+    "title": "Scene 4",
+    "narration": "優しいからでもない",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 優しいからでもない",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 5,
+    "title": "Scene 5",
+    "narration": "断ると\n\n申し訳ない気がした",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断ると 申し訳ない気がした",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 6,
+    "title": "Scene 6",
+    "narration": "昔\n\n手伝うと褒められた",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 昔 手伝うと褒められた",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 7,
+    "title": "Scene 7",
+    "narration": "我慢すると喜ばれた",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 我慢すると喜ばれた",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 8,
+    "title": "Scene 8",
+    "narration": "役に立つと\n\n必要とされた",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 役に立つと 必要とされた",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 9,
+    "title": "Scene 9",
+    "narration": "気づけば\n\n期待に応えることが\n\n私の価値になっていた",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 気づけば 期待に応えることが 私の価値になっていた",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 10,
+    "title": "Scene 10",
+    "narration": "だから\n\n断れないんじゃない",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: だから 断れないんじゃない",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 11,
+    "title": "Scene 11",
+    "narration": "断る自分に\n\n価値がない気がした",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断る自分に 価値がない気がした",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  },
+  {
+    "scene_number": 12,
+    "title": "Scene 12",
+    "narration": "そう思うしか\n\nなかった\n\n……\n\nあなたは最近\n\n自分の気持ちを\n\n後回しにしていませんか？",
+    "visual_direction": "40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: そう思うしか なかった …… あなたは最近 自分の気持ちを 後回しにしていませんか？",
+    "channel_rules": {
+      "format": "ドラマ朗読形式",
+      "protagonist": "40代日本人女性",
+      "theme": "静かな違和感 × 正体暴き",
+      "ending": "最後は問いで終わる",
+      "prompt_policy": "シーンごとに画像生成プロンプトを作る"
+    }
+  }
+]

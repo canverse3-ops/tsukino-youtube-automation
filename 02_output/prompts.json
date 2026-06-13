@@ -1,0 +1,86 @@
+[
+  {
+    "scene_number": 1,
+    "title": "Scene 1",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 1、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 1, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 2,
+    "title": "Scene 2",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 2、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: でも 気づけば 「いいよ」 と返していた",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 2, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: でも 気づけば 「いいよ」 と返していた",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 3,
+    "title": "Scene 3",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 3、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 行きたいからじゃない",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 3, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 行きたいからじゃない",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 4,
+    "title": "Scene 4",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 4、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 優しいからでもない",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 4, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 優しいからでもない",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 5,
+    "title": "Scene 5",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 5、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断ると 申し訳ない気がした",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 5, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断ると 申し訳ない気がした",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 6,
+    "title": "Scene 6",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 6、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 昔 手伝うと褒められた",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 6, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 昔 手伝うと褒められた",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 7,
+    "title": "Scene 7",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 7、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 我慢すると喜ばれた",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 7, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 我慢すると喜ばれた",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 8,
+    "title": "Scene 8",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 8、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 役に立つと 必要とされた",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 8, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 役に立つと 必要とされた",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 9,
+    "title": "Scene 9",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 9、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 気づけば 期待に応えることが 私の価値になっていた",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 9, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 気づけば 期待に応えることが 私の価値になっていた",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 10,
+    "title": "Scene 10",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 10、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: だから 断れないんじゃない",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 10, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: だから 断れないんじゃない",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 11,
+    "title": "Scene 11",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 11、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断る自分に 価値がない気がした",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 11, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 断る自分に 価値がない気がした",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  },
+  {
+    "scene_number": 12,
+    "title": "Scene 12",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 12、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: そう思うしか なかった …… あなたは最近 自分の気持ちを 後回しにしていませんか？",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 12, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: そう思うしか なかった …… あなたは最近 自分の気持ちを 後回しにしていませんか？",
+    "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
+  }
+]
