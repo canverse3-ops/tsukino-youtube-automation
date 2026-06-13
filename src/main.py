@@ -92,6 +92,11 @@ def split_scenes(body: str) -> list[tuple[str, str]]:
         if scenes:
             return scenes
 
+    horizontal_rule_pattern = re.compile(r"^\s*---\s*$", re.MULTILINE)
+    slide_blocks = [block.strip() for block in horizontal_rule_pattern.split(body) if block.strip()]
+    if len(slide_blocks) > 1:
+        return [(f"Scene {index}", block) for index, block in enumerate(slide_blocks, start=1)]
+
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n", body) if p.strip()]
     return [(f"Scene {index}", paragraph) for index, paragraph in enumerate(paragraphs, start=1)]
 
