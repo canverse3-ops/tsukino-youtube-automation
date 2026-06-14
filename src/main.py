@@ -36,13 +36,13 @@ CHARACTER_CONSISTENCY = (
 
 IMAGE_STYLE = (
     "cinematic photo illustration, realistic illustration, Japanese drama, movie still, "
-    "warm light, shallow depth of field, vertical 9:16 composition, emotional atmosphere, "
-    "no text in image"
+    "warm sunset light, golden hour, emotional atmosphere, shallow depth of field, "
+    "vertical 9:16, high detail, no text, no logo, no watermark"
 )
 
 NEGATIVE_PROMPT = (
-    "low quality, bad anatomy, extra fingers, deformed hands, text, logo, watermark, "
-    "horror, overly bright, cartoonish"
+    "low quality, blurry, text, logo, watermark, extra fingers, deformed hands, "
+    "bad anatomy, horror, cartoon, oversaturated, ugly face"
 )
 
 
@@ -55,6 +55,18 @@ class Prompt:
     emotion_ja: str
     composition_ja: str
     camera_ja: str
+    image_prompt_ja: str
+    image_prompt_en: str
+    negative_prompt: str
+    character_consistency: str
+
+
+@dataclass(frozen=True)
+class ImagePrompt:
+    scene_number: int
+    image_filename: str
+    duration_seconds: int
+    narration: str
     image_prompt_ja: str
     image_prompt_en: str
     negative_prompt: str
@@ -133,7 +145,6 @@ def build_visual_direction(narration: str) -> str:
     )
 
 
-
 def estimate_duration_seconds(narration: str) -> int:
     compact_text = re.sub(r"\s+", "", narration)
     return max(4, min(8, round(len(compact_text) / 12)))
@@ -169,6 +180,37 @@ def build_camera_ja(scene_number: int) -> str:
         return "クローズアップ、少し斜めから、背景を柔らかくぼかす"
     return "ミディアムクローズアップ、固定カメラ、映画のワンシーンのような自然な画角"
 
+
+def build_prompt_ja(
+    scene: Scene,
+    visual_summary_ja: str,
+    emotion_ja: str,
+    composition_ja: str,
+    camera_ja: str,
+) -> str:
+    return (
+        f"{visual_summary_ja}。感情: {emotion_ja}。構図: {composition_ja}。"
+        f"カメラ: {camera_ja}。日常のワンシーン、映画の1カットのような構図、"
+        "静かな違和感と正体暴きの余韻、派手な演出やスピリチュアル表現は使わない。"
+        f"画像スタイル: {IMAGE_STYLE}。"
+        f"キャラクター一貫性: {CHARACTER_CONSISTENCY}。"
+        f"ナレーション: {scene.narration}。"
+    )
+
+
+def build_prompt_en(scene: Scene) -> str:
+    return (
+        "A 43-year-old Japanese woman in a quiet everyday scene, "
+        "showing subtle unease through her facial expression and gesture, "
+        "with the mood of quietly revealing the truth. "
+        f"Scene title: {scene.title}. Narration: {scene.narration}. "
+        "Compose it like a single movie still from a Japanese drama, natural and understated, "
+        "no flashy staging, no spiritual imagery. "
+        f"Image style: {IMAGE_STYLE}. "
+        f"Character consistency: {CHARACTER_CONSISTENCY}."
+    )
+
+
 def normalize_question_ending(text: str) -> str:
     stripped = text.rstrip()
     if stripped.endswith(("?", "？")):
@@ -200,21 +242,8 @@ def build_prompts(scenes: Iterable[Scene]) -> list[Prompt]:
         emotion_ja = infer_emotion_ja(scene.narration)
         composition_ja = build_composition_ja(scene.scene_number)
         camera_ja = build_camera_ja(scene.scene_number)
-        prompt_ja = (
-            f"{visual_summary_ja}。感情: {emotion_ja}。構図: {composition_ja}。"
-            f"カメラ: {camera_ja}。画像スタイル: {IMAGE_STYLE}。"
-            f"キャラクター一貫性: {CHARACTER_CONSISTENCY}。"
-            "画像内に文字を入れない。"
-        )
-        prompt_en = (
-            "A 43-year-old Japanese woman in a quiet everyday scene, "
-            "showing subtle unease and introspection, with foreshadowing for an emotional reveal. "
-            f"Scene title: {scene.title}. "
-            "Vertical 9:16 framing, cinematic medium close-up or close-up, warm dramatic light, "
-            "soft background blur, natural facial expression, emotional Japanese drama mood. "
-            f"Image style: {IMAGE_STYLE}. "
-            f"Character consistency: {CHARACTER_CONSISTENCY}. No text in image."
-        )
+        prompt_ja = build_prompt_ja(scene, visual_summary_ja, emotion_ja, composition_ja, camera_ja)
+        prompt_en = build_prompt_en(scene)
         prompts.append(
             Prompt(
                 scene_number=scene.scene_number,
@@ -233,6 +262,31 @@ def build_prompts(scenes: Iterable[Scene]) -> list[Prompt]:
     return prompts
 
 
+def build_image_prompts(scenes: Iterable[Scene]) -> list[ImagePrompt]:
+    image_prompts = []
+    for scene in scenes:
+        visual_summary_ja = build_visual_summary(scene)
+        image_prompts.append(
+            ImagePrompt(
+                scene_number=scene.scene_number,
+                image_filename=f"scene_{scene.scene_number:02}.png",
+                duration_seconds=estimate_duration_seconds(scene.narration),
+                narration=scene.narration,
+                image_prompt_ja=build_prompt_ja(
+                    scene,
+                    visual_summary_ja,
+                    infer_emotion_ja(scene.narration),
+                    build_composition_ja(scene.scene_number),
+                    build_camera_ja(scene.scene_number),
+                ),
+                image_prompt_en=build_prompt_en(scene),
+                negative_prompt=NEGATIVE_PROMPT,
+                character_consistency=CHARACTER_CONSISTENCY,
+            )
+        )
+    return image_prompts
+
+
 def build_description(title: str, scenes: list[Scene]) -> str:
     first_scene = scenes[0].narration.replace("\n", " ")[:120]
     return (
@@ -246,6 +300,7 @@ def build_description(title: str, scenes: list[Scene]) -> str:
 def write_outputs(title: str, scenes: list[Scene], output_dir: Path = OUTPUT_DIR) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     prompts = build_prompts(scenes)
+    image_prompts = build_image_prompts(scenes)
 
     (output_dir / "scene.json").write_text(
         json.dumps([asdict(scene) for scene in scenes], ensure_ascii=False, indent=2),
@@ -253,6 +308,10 @@ def write_outputs(title: str, scenes: list[Scene], output_dir: Path = OUTPUT_DIR
     )
     (output_dir / "prompts.json").write_text(
         json.dumps([asdict(prompt) for prompt in prompts], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (output_dir / "image_prompts.json").write_text(
+        json.dumps([asdict(prompt) for prompt in image_prompts], ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     (output_dir / "youtube_title.txt").write_text(f"{title}\n", encoding="utf-8")
