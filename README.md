@@ -94,3 +94,28 @@ title: 隣の部屋から聞こえる声
 - YouTube API: タイトル、説明文、タグ、固定コメントを使った投稿自動化
 
 APIキーや認証情報は、実装時に環境変数や `.env` で管理する想定です。秘密情報をリポジトリにコミットしないでください。
+
+## GitHub Actionsでの自動生成
+
+このリポジトリでは、`01_script/script.md` をPushしたときにGitHub Actionsで `python src/main.py` を自動実行し、`02_output/` 以下の制作ファイルを更新できます。
+
+### 自動生成されるファイル
+
+- `02_output/scene.json`
+- `02_output/prompts.json`
+- `02_output/youtube_title.txt`
+- `02_output/youtube_description.txt`
+- `02_output/youtube_tags.txt`
+- `02_output/fixed_comment.txt`
+
+### 運用手順
+
+1. Cursorなどのエディタで `01_script/script.md` を編集して保存します。
+2. GitHub Desktopなどで変更をコミットします。
+3. `Push origin` でGitHubへPushします。
+4. GitHub Actionsの `Generate outputs` ワークフローが自動実行されます。
+5. `02_output/` に変更がある場合、GitHub Actionsが自動コミットして同じブランチへPushします。
+
+### 無限ループ防止について
+
+ワークフローはPush時に実行されますが、対象パスを `01_script/script.md` とワークフローファイルに限定しています。GitHub Actionsが `02_output/` だけを自動コミットした場合は再実行されないため、生成コミットによる無限ループを防ぎます。加えて、実行条件で `github-actions[bot]` によるPushを除外しています。

@@ -2,8 +2,8 @@
   {
     "scene_number": 1,
     "title": "Scene 1",
-    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 1、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった",
-    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 1, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった",
+    "image_prompt_ja": "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、場面: Scene 1、描写: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった.",
+    "image_prompt_en": "Vertical 9:16 cinematic realistic image for a YouTube Short, Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, scene: Scene 1, visual direction: 40代日本人女性を主人公に、薄暗い日常空間で静かな違和感が漂う構図。台本要素: 本当は 家で休みたかった.",
     "negative_prompt": "低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手"
   },
   {
