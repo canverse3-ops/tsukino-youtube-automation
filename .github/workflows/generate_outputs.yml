@@ -6,6 +6,7 @@ on:
       - '**'
     paths:
       - '01_script/script.md'
+      - 'src/main.py'
       - '.github/workflows/generate_outputs.yml'
 
 permissions:
