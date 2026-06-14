@@ -97,7 +97,11 @@ title: 隣の部屋から聞こえる声
 | `negative_prompt` | 低品質、ぼけ、文字、ロゴ、透かし、手指や人体の崩れ、ホラー、カートゥーン調、過彩度などを避けるための共通ネガティブプロンプト |
 | `character_consistency` | 全シーンで同一人物として描くための共通キャラクター設定 |
 
-画像生成専用プロンプトでは、固定キャラクターとして「43歳の日本人女性、肩までの濃い茶色の髪、柔らかい顔立ち、自然なメイク、細面、前後シーンと同一人物」を使います。固定画像スタイルは、写実的な映画風イラスト、日本のドラマ、映画の1カット、夕方の暖かい光、ゴールデンアワー、感情的な空気感、浅い被写界深度、縦長9:16、高精細、文字・ロゴ・透かしなしです。派手な演出やスピリチュアル表現は使いません。
+画像生成専用プロンプトでは、全シーンの英語プロンプト先頭に `same Japanese woman, 43 years old, shoulder length dark brown hair, soft facial features, natural makeup, slim face, consistent character design, same character as previous scenes` を固定で入れます。日本語プロンプト先頭には `同じ日本人女性、43歳、肩までのダークブラウンの髪、柔らかい顔立ち、ナチュラルメイク、細めの輪郭、主人公固定、同一人物、consistent character design` を固定で入れ、同じ主人公としての一貫性を強めます。固定画像スタイルは `YouTubeショート用縦長9:16、実写風イラスト、映画のワンシーン、Japanese drama style、movie still、warm ambient lighting、emotional storytelling、realistic illustration、high detail、no text in image` です。
+
+シーンごとのプロンプトは、台本本文から場所、時間帯、主人公の表情、姿勢、小物、光、カメラ構図、感情を推定して具体化します。たとえば「家で休みたかった」場面では、夜のリビング、ソファ、スマホ、冷めたマグカップ、暖かい間接照明、窓の外の夜景など、画像生成AIにそのまま貼れる具体的な描写を含めます。抽象的な「日常空間」だけの指定、`Scene 1` などのシーン番号文字列、文字入り画像、スピリチュアル表現、ホラー表現、アニメ調は避けます。
+
+`negative_prompt` は全シーンで `low quality, text, logo, watermark, horror, scary face, distorted body, extra fingers, bad hands, old woman, elderly, cartoon, anime style, blurry, duplicate person` に固定します。
 
 
 ### `image_generation_plan.json`
@@ -130,7 +134,7 @@ title: 隣の部屋から聞こえる声
 | `negative_prompt` | 低品質、崩れ、文字、ロゴ、透かしなどを避けるための共通ネガティブプロンプト |
 | `character_consistency` | 全シーンで同一人物として描くための共通キャラクター設定 |
 
-共通キャラクター設定は「43歳の日本人女性、肩までの濃い茶色の髪、柔らかい顔立ち、自然なメイク、細面、前後シーンと同一人物」として固定しています。画像スタイルは、写実的な映画風イラスト、日本のドラマ、映画の1カット、夕方の暖かい光、ゴールデンアワー、浅い被写界深度、縦長9:16、高精細、文字・ロゴ・透かしなしを基本にしています。
+共通キャラクター設定は、日本語プロンプトでは「同じ日本人女性、43歳、肩までのダークブラウンの髪、柔らかい顔立ち、ナチュラルメイク、細めの輪郭、主人公固定、同一人物、consistent character design」、英語プロンプトでは「same Japanese woman, 43 years old, shoulder length dark brown hair, soft facial features, natural makeup, slim face, consistent character design, same character as previous scenes」として固定しています。画像スタイルは、YouTubeショート用縦長9:16、実写風イラスト、映画のワンシーン、Japanese drama style、movie still、warm ambient lighting、emotional storytelling、realistic illustration、high detail、no text in image を基本にしています。各シーンで場所、時間帯、表情、姿勢、小物、光、カメラ構図、感情を具体化します。
 
 ### YouTube用テキスト
 
