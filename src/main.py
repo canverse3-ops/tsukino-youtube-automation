@@ -28,13 +28,37 @@ class Scene:
     channel_rules: dict[str, str]
 
 
+CHARACTER_CONSISTENCY = (
+    "same Japanese woman, 43 years old, shoulder length dark brown hair, "
+    "soft facial features, natural makeup, slim face, consistent character design, "
+    "same character as previous scenes"
+)
+
+IMAGE_STYLE = (
+    "cinematic photo illustration, realistic illustration, Japanese drama, movie still, "
+    "warm light, shallow depth of field, vertical 9:16 composition, emotional atmosphere, "
+    "no text in image"
+)
+
+NEGATIVE_PROMPT = (
+    "low quality, bad anatomy, extra fingers, deformed hands, text, logo, watermark, "
+    "horror, overly bright, cartoonish"
+)
+
+
 @dataclass(frozen=True)
 class Prompt:
     scene_number: int
-    title: str
+    image_filename: str
+    duration_seconds: int
+    visual_summary_ja: str
+    emotion_ja: str
+    composition_ja: str
+    camera_ja: str
     image_prompt_ja: str
     image_prompt_en: str
     negative_prompt: str
+    character_consistency: str
 
 
 def read_script(path: Path = INPUT_FILE) -> str:
@@ -109,6 +133,42 @@ def build_visual_direction(narration: str) -> str:
     )
 
 
+
+def estimate_duration_seconds(narration: str) -> int:
+    compact_text = re.sub(r"\s+", "", narration)
+    return max(4, min(8, round(len(compact_text) / 12)))
+
+
+def build_visual_summary(scene: Scene) -> str:
+    snippet = re.sub(r"\s+", " ", scene.narration).strip()[:70]
+    return f"{scene.title}。43歳の日本人女性が、日常の中で静かな違和感を抱く場面。台本要素: {snippet}"
+
+
+def infer_emotion_ja(narration: str) -> str:
+    if any(word in narration for word in ("気づ", "違和感", "なかった", "申し訳ない")):
+        return "戸惑い、抑えた不安、内省"
+    if any(word in narration for word in ("褒め", "喜ば", "必要")):
+        return "寂しさ、承認への渇き、静かな切なさ"
+    if any(word in narration for word in ("あなた", "？", "?")):
+        return "問いかけ、余韻、静かな緊張"
+    return "静かな緊張、孤独感、感情を抑えた表情"
+
+
+def build_composition_ja(scene_number: int) -> str:
+    if scene_number == 1:
+        return "縦長9:16、主人公を画面中央やや下に配置、余白を広めに取り孤独感を出す"
+    if scene_number % 2 == 0:
+        return "縦長9:16、主人公を三分割構図の片側に配置、背景に生活感のある室内をぼかして入れる"
+    return "縦長9:16、主人公の上半身を中心にした構図、暖かい光と影で心情を強調する"
+
+
+def build_camera_ja(scene_number: int) -> str:
+    if scene_number == 1:
+        return "ミディアムショット、目線の高さ、浅い被写界深度"
+    if scene_number % 2 == 0:
+        return "クローズアップ、少し斜めから、背景を柔らかくぼかす"
+    return "ミディアムクローズアップ、固定カメラ、映画のワンシーンのような自然な画角"
+
 def normalize_question_ending(text: str) -> str:
     stripped = text.rstrip()
     if stripped.endswith(("?", "？")):
@@ -136,23 +196,38 @@ def build_scenes(scene_blocks: Iterable[tuple[str, str]]) -> list[Scene]:
 def build_prompts(scenes: Iterable[Scene]) -> list[Prompt]:
     prompts = []
     for scene in scenes:
+        visual_summary_ja = build_visual_summary(scene)
+        emotion_ja = infer_emotion_ja(scene.narration)
+        composition_ja = build_composition_ja(scene.scene_number)
+        camera_ja = build_camera_ja(scene.scene_number)
         prompt_ja = (
-            "YouTubeショート用の縦長9:16映像、ドラマ朗読形式、"
-            "40代日本人女性、静かな違和感、正体暴きの伏線、映画的照明、写実的、"
-            f"場面: {scene.title}、描写: {scene.visual_direction}"
+            f"{visual_summary_ja}。感情: {emotion_ja}。構図: {composition_ja}。"
+            f"カメラ: {camera_ja}。画像スタイル: {IMAGE_STYLE}。"
+            f"キャラクター一貫性: {CHARACTER_CONSISTENCY}。"
+            "画像内に文字を入れない。"
         )
         prompt_en = (
-            "Vertical 9:16 cinematic realistic image for a YouTube Short, "
-            "Japanese woman in her 40s as protagonist, quiet unease, mystery reveal foreshadowing, "
-            f"scene: {scene.title}, visual direction: {scene.visual_direction}"
+            "A 43-year-old Japanese woman in a quiet everyday scene, "
+            "showing subtle unease and introspection, with foreshadowing for an emotional reveal. "
+            f"Scene title: {scene.title}. "
+            "Vertical 9:16 framing, cinematic medium close-up or close-up, warm dramatic light, "
+            "soft background blur, natural facial expression, emotional Japanese drama mood. "
+            f"Image style: {IMAGE_STYLE}. "
+            f"Character consistency: {CHARACTER_CONSISTENCY}. No text in image."
         )
         prompts.append(
             Prompt(
                 scene_number=scene.scene_number,
-                title=scene.title,
+                image_filename=f"scene_{scene.scene_number:02}.png",
+                duration_seconds=estimate_duration_seconds(scene.narration),
+                visual_summary_ja=visual_summary_ja,
+                emotion_ja=emotion_ja,
+                composition_ja=composition_ja,
+                camera_ja=camera_ja,
                 image_prompt_ja=prompt_ja,
                 image_prompt_en=prompt_en,
-                negative_prompt="低品質、文字、ロゴ、透かし、過度なホラー表現、人物の崩れ、不自然な手",
+                negative_prompt=NEGATIVE_PROMPT,
+                character_consistency=CHARACTER_CONSISTENCY,
             )
         )
     return prompts
