@@ -9,6 +9,7 @@ from typing import Iterable
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INPUT_FILE = PROJECT_ROOT / "01_script" / "script.md"
 OUTPUT_DIR = PROJECT_ROOT / "02_output"
+IMAGES_DIR = PROJECT_ROOT / "03_images"
 
 CHANNEL_RULES = {
     "format": "ドラマ朗読形式",
@@ -59,6 +60,13 @@ class Prompt:
     image_prompt_en: str
     negative_prompt: str
     character_consistency: str
+
+
+@dataclass(frozen=True)
+class ImageGenerationPlan:
+    scene_number: int
+    image_filename: str
+    image_prompt_ja: str
 
 
 @dataclass(frozen=True)
@@ -262,6 +270,17 @@ def build_prompts(scenes: Iterable[Scene]) -> list[Prompt]:
     return prompts
 
 
+def build_image_generation_plan(prompts: Iterable[Prompt]) -> list[ImageGenerationPlan]:
+    return [
+        ImageGenerationPlan(
+            scene_number=prompt.scene_number,
+            image_filename=prompt.image_filename,
+            image_prompt_ja=prompt.image_prompt_ja,
+        )
+        for prompt in prompts
+    ]
+
+
 def build_image_prompts(scenes: Iterable[Scene]) -> list[ImagePrompt]:
     image_prompts = []
     for scene in scenes:
@@ -299,7 +318,11 @@ def build_description(title: str, scenes: list[Scene]) -> str:
 
 def write_outputs(title: str, scenes: list[Scene], output_dir: Path = OUTPUT_DIR) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
+    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+    (IMAGES_DIR / ".gitkeep").touch(exist_ok=True)
+
     prompts = build_prompts(scenes)
+    image_generation_plan = build_image_generation_plan(prompts)
     image_prompts = build_image_prompts(scenes)
 
     (output_dir / "scene.json").write_text(
@@ -312,6 +335,10 @@ def write_outputs(title: str, scenes: list[Scene], output_dir: Path = OUTPUT_DIR
     )
     (output_dir / "image_prompts.json").write_text(
         json.dumps([asdict(prompt) for prompt in image_prompts], ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (output_dir / "image_generation_plan.json").write_text(
+        json.dumps([asdict(plan) for plan in image_generation_plan], ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     (output_dir / "youtube_title.txt").write_text(f"{title}\n", encoding="utf-8")
